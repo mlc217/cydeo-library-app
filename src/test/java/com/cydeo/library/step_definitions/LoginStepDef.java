@@ -106,4 +106,28 @@ public class LoginStepDef {
         Assert.assertEquals(expectedUserName,actualUserName);
 
     }
+
+    @Then("verify that the title is {string}")
+    public void verifyThatTheTitleIs(String expected) {
+        String actual = Driver.getDriver().getTitle();
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    @When("I login with invalid credentials librarian")
+    public void iLoginWithInvalidCredentialsLibrarian() throws InterruptedException {
+        loginPage.emailInput.sendKeys("student55@gmail.com");
+        loginPage.passwordInput.sendKeys("student55_pass578");
+        Thread.sleep(3000);
+        loginPage.signinBtn.click();
+
+    }
+
+    @Then("verify the error message {string}")
+    public void verifyTheErrorMessage(String expected) {
+        String actualError = loginPage.errorMsg.getText() ;
+        Assert.assertEquals(expected,actualError);
+
+
+    }
 }

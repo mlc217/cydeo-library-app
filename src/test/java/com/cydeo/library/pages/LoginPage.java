@@ -1,11 +1,10 @@
 package com.cydeo.library.pages;
 
 import com.cydeo.library.utilities.Driver;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import java.util.List;
+
 
 // page_url = https://library2.cydeo.com/login.html
 public class LoginPage {
@@ -17,6 +16,9 @@ public class LoginPage {
 
     @FindBy(xpath = "//button")
     public WebElement signinBtn;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement errorMsg;
 
     // No page elements added
 
